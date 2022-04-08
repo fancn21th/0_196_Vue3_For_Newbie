@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "yarn vite ./src"
+  },
+  "dependencies": {
+    "vue": "3"
+  },
+  "devDependencies": {
+    "vite": "2"
+  }
+}
