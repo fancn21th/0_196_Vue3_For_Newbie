@@ -3,27 +3,29 @@ import * as Vue from "vue/dist/vue.esm-bundler.js";
 const app = Vue.createApp({
   template: `
    <div>
-      <h1 class="text-3xl font-bold underline">{{message}}</h1>
-      <button class="bg-green-200 border-0 text-white p-6" @click="toggle">Click</button>
-      <ul>
-        <li v-for="number in evenNumbers" >{{number}}</li>
-      </ul>
+      <input 
+        :value="value"
+        @input="input"
+        type="text"
+        class="border border-gray-400 p-2"
+      />
+      <div class="text-red-800">{{error}}</div>
    </div>
   `,
   data: () => ({
-    isEven: true,
+    value: "hello",
     numbers: Array.from(new Array(10).keys()),
   }),
   methods: {
-    toggle() {
-      this.isEven = !this.isEven;
+    input(e) {
+      this.value = e.target.value;
     },
   },
   computed: {
-    evenNumbers() {
-      return this.numbers.filter(
-        (number) => (number % 2 === 0) === this.isEven
-      );
+    error() {
+      if (this.value.length <= 5) {
+        return "长度必须大于5";
+      }
     },
   },
 });
