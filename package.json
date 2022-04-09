@@ -1,11 +1,13 @@
 {
   "scripts": {
-    "start": "yarn vite ./src"
+    "start": "yarn vite --config vite.config.js ./src"
   },
   "dependencies": {
+    "@vue/compiler-sfc": "3.2.31",
     "vue": "3"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "2.3.1",
     "vite": "2"
   }
 }
