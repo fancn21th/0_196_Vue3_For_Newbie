@@ -3,18 +3,19 @@ import * as Vue from "vue/dist/vue.esm-bundler.js";
 const app = Vue.createApp({
   template: `
    <div>
-      <input 
-        :value="value"
-        @input="input"
-        type="text"
-        class="border border-gray-400 p-2"
-      />
-      <div class="text-red-800">{{error}}</div>
+      <input type="radio" v-model="radioValue" value="a" /> a
+      <input type="radio" v-model="radioValue" value="b" /> b
+      <input type="radio" v-model="radioValue" value="c" /> c
+      <p>你 输入了：{{ radioValue }}</p>
+      <input type="checkbox" v-model="checkValue" value="a" /> a
+      <input type="checkbox" v-model="checkValue" value="b" /> b
+      <input type="checkbox" v-model="checkValue" value="c" /> c
+      <p>你 输入了：{{ checkValue }}</p>
    </div>
   `,
   data: () => ({
-    value: "hello",
-    numbers: Array.from(new Array(10).keys()),
+    radioValue: "a",
+    checkValue: ["a"],
   }),
   methods: {
     input(e) {
