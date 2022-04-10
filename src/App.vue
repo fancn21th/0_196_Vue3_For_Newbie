@@ -31,13 +31,14 @@ import { ref, reactive, computed } from "vue";
 
 export default {
   setup() {
-    // number, string
+    // ref <--> number, string
     const count = ref(0);
-    // {}
+    // reactive <--> {}
     const numbers = reactive({
       foo: 0,
       bar: 0,
     });
+    // computed <--> computed(() => {})
     const total = computed(() => {
       return count.value + numbers.foo + numbers.bar;
     });
