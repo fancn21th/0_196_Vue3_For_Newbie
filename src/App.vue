@@ -19,13 +19,15 @@
     >
       {{ numbers.bar }}
     </button>
+
+    <p>Total :{{ total }}</p>
   </div>
 </template>
 
 <script>
 // 显示地 开发模式
 // 更模块化
-import { ref, reactive } from "vue";
+import { ref, reactive, computed } from "vue";
 
 export default {
   setup() {
@@ -35,6 +37,9 @@ export default {
     const numbers = reactive({
       foo: 0,
       bar: 0,
+    });
+    const total = computed(() => {
+      return count.value + numbers.foo + numbers.bar;
     });
     function increase(key) {
       numbers[key]++;
@@ -49,6 +54,7 @@ export default {
       numbers,
       increment,
       increase,
+      total,
     };
   },
   methods: {},
