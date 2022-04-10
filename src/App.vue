@@ -1,10 +1,11 @@
 <template>
-  <h2>{{ msg }}</h2>
-  <input
-    type="text"
-    v-model="msg"
-    class="shadow appearance-none border rounded w-100 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-  />
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-20"
+    @click="increment"
+  >
+    <!-- ref unwrapping -->
+    {{ count }}
+  </button>
 </template>
 
 <script>
@@ -14,11 +15,18 @@ import { ref } from "vue";
 
 export default {
   setup() {
-    const msg = ref("Hello Vue!");
+    const count = ref(0);
+    function increment() {
+      // 修改 value 而不是 count
+      console.log(count);
+      count.value++;
+    }
     return {
-      msg,
+      count,
+      increment,
     };
   },
+  methods: {},
 };
 </script>
 
