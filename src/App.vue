@@ -21,6 +21,11 @@
     </button>
 
     <p>Total :{{ total }}</p>
+    <ul>
+      <li v-for="his in history" :key="his">
+        {{ his }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -33,6 +38,7 @@ export default {
   setup() {
     // ref <--> number, string
     const count = ref(0);
+    const history = ref([]);
     // reactive <--> {}
     const numbers = reactive({
       foo: 0,
@@ -54,8 +60,22 @@ export default {
     // watch
     watch(
       numbers,
-      (newValue) => {
-        console.log(newValue);
+      (newValue, oldValue) => {
+        if (oldValue && oldValue !== newValue) {
+          console.log(`foo: ${oldValue.foo} -> ${newValue.foo}`);
+          console.log(`bar: ${oldValue.bar} -> ${newValue.bar}`);
+        }
+      },
+      {
+        immediate: true,
+      }
+    );
+    watch(
+      [count],
+      ([newValue], [oldValue]) => {
+        if (oldValue !== newValue) {
+          history.value.push(`count: ${oldValue} -> ${newValue}`);
+        }
       },
       {
         immediate: true,
@@ -67,6 +87,7 @@ export default {
     });
     return {
       count,
+      history,
       numbers,
       increment,
       increase,
