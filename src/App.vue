@@ -27,7 +27,7 @@
 <script>
 // 显示地 开发模式
 // 更模块化
-import { ref, reactive, computed } from "vue";
+import { ref, reactive, computed, watch, watchEffect } from "vue";
 
 export default {
   setup() {
@@ -42,6 +42,7 @@ export default {
     const total = computed(() => {
       return count.value + numbers.foo + numbers.bar;
     });
+    // methods
     function increase(key) {
       numbers[key]++;
     }
@@ -50,6 +51,20 @@ export default {
       console.log(count);
       count.value++;
     }
+    // watch
+    watch(
+      numbers,
+      (newValue) => {
+        console.log(newValue);
+      },
+      {
+        immediate: true,
+      }
+    );
+    // watchEffect
+    watchEffect(() => {
+      console.log(count.value);
+    });
     return {
       count,
       numbers,
