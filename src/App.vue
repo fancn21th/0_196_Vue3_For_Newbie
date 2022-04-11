@@ -34,6 +34,7 @@ import { useNumbers } from "./useNumbers";
 
 export default {
   setup() {
+    const { count, history, numbers, total } = useNumbers();
     // methods
     function increase(key) {
       numbers[key]++;
@@ -47,7 +48,10 @@ export default {
     return {
       increment,
       increase,
-      ...useNumbers(),
+      count,
+      history,
+      numbers,
+      total,
     };
   },
   methods: {},
