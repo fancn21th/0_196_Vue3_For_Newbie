@@ -61,7 +61,8 @@ export default {
     watch(
       numbers,
       (newValue, oldValue) => {
-        if (oldValue && oldValue !== newValue) {
+        // 注意：这里的 newValue 和 oldValue 是 reactive 对象 永远相同
+        if (oldValue) {
           console.log(`foo: ${oldValue.foo} -> ${newValue.foo}`);
           console.log(`bar: ${oldValue.bar} -> ${newValue.bar}`);
         }
