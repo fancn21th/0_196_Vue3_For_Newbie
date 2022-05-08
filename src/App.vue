@@ -83,6 +83,7 @@ export default {
     );
     // watchEffect
     watchEffect(() => {
+      // 只会监听 count 的变化
       console.log(count.value);
     });
     return {
