@@ -25,6 +25,13 @@
 <script>
 // 显示地 开发模式
 // 更模块化
+/* 
+  reactive vs ref
+
+  reactive: 对象类型
+  ref: 基础类型 string number boolean 
+    
+*/
 import { ref, reactive } from "vue";
 
 export default {
