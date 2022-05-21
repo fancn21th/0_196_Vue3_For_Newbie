@@ -15,11 +15,17 @@
         <p class="mt-2 text-gray-600">
           A simple todo list app built with Vue.js and TailwindCSS.
         </p>
-        <div class="mt-4">
+        <div class="mt-4 flex-col">
+          <input
+            class="shadow appearance-none border-l border-y rounded-l-lg px-3 py-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-2/3"
+            id="username"
+            type="text"
+            placeholder="Username"
+          />
           <a
             href="#"
-            class="inline-block bg-indigo-500 text-white px-5 py-3 rounded-lg shadow-lg uppercase tracking-wider font-semibold text-sm"
-            >Add another todo</a
+            class="shadow appearance-none border-r border-y inline-block bg-indigo-500 text-white text-center py-3 rounded-r-lg uppercase tracking-wider font-semibold text-sm w-1/3 hover:bg-indigo-700"
+            >Add</a
           >
         </div>
       </div>
