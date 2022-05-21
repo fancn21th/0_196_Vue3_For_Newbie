@@ -15,12 +15,11 @@
         <p class="mt-2 text-gray-600">
           A simple todo list app built with Vue.js and TailwindCSS.
         </p>
-        <div class="mt-4 flex-col">
+        <div class="mt-4 flex">
           <input
             class="shadow appearance-none border-l border-y rounded-l-lg px-3 py-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-2/3"
-            id="username"
             type="text"
-            placeholder="Username"
+            placeholder="我准备干啥 #"
           />
           <a
             href="#"
@@ -28,6 +27,20 @@
             >Add</a
           >
         </div>
+        <ul class="mt-4">
+          <li class="text-gray-700 text-xl after:content-['#'] mb-2">
+            <input class="" type="checkbox" value="" id="foo" />
+            <label class="" for="foo"> 穿衣服 </label>
+          </li>
+          <li class="text-gray-700 text-xl after:content-['#'] mb-2">
+            <input class="" type="checkbox" value="" id="foo" />
+            <label class="" for="foo"> 穿衣服 </label>
+          </li>
+          <li class="text-gray-700 text-xl after:content-['#'] mb-2">
+            <input class="" type="checkbox" value="" id="foo" />
+            <label class="" for="foo"> 穿衣服 </label>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="hidden lg:block lg:w-1/2 lg:relative">
