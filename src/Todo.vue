@@ -22,7 +22,7 @@ export default {
     console.log(props);
 
     return {
-      todo: props.todo,
+      // todo: props.todo, // 可以直接使用 props.todo
     };
   },
 };
