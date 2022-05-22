@@ -11,6 +11,7 @@ class Store {
     });
   }
 
+  // 封装
   addTodo(title) {
     this.state.todos.push({
       id: this.idx++,
