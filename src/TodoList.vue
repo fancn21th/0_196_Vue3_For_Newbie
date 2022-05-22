@@ -1,28 +1,20 @@
 <template>
-  <li class="text-gray-700 text-xl after:content-['#'] mb-2">
-    <input
-      class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-      type="checkbox"
-      v-model="todo.done"
-      :id="todo.id"
-    />
-    <label class="ml-2" :for="todo.id">{{ todo.title }}</label>
-  </li>
+  <ul class="mt-4">
+    <todo v-for="todo in todos" :key="todo.id" :todo="todo"></todo>
+  </ul>
 </template>
 
 <script>
-export default {
-  props: {
-    todo: {
-      type: Object,
-      required: true,
-    },
-  },
-  setup(props) {
-    console.log(props);
+import Todo from "./Todo.vue";
+import { store } from "./store";
 
+export default {
+  components: {
+    Todo,
+  },
+  setup() {
     return {
-      // todo: props.todo, // 可以直接使用 props.todo
+      todos: store.state.todos,
     };
   },
 };

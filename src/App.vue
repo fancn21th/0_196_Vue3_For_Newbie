@@ -5,14 +5,8 @@
     >
       <div class="xl:max-w-lg xl:ml-auto">
         <hero />
-        <add-todo @addTodo="addTodo" />
-        <ul class="mt-4">
-          <todo-list
-            v-for="todo in store.state.todos"
-            :key="todo.id"
-            :todo="todo"
-          ></todo-list>
-        </ul>
+        <add-todo />
+        <todo-list />
       </div>
     </div>
     <div class="hidden lg:block lg:w-1/2 lg:relative">
@@ -26,7 +20,6 @@
 </template>
 
 <script>
-import { store } from "./store";
 import Hero from "./Hero.vue";
 import AddTodo from "./AddTodo.vue";
 import TodoList from "./TodoList.vue";
@@ -38,9 +31,7 @@ export default {
     TodoList,
   },
   setup() {
-    const addTodo = () => {};
-
-    return { store, addTodo };
+    return {};
   },
   methods: {},
 };

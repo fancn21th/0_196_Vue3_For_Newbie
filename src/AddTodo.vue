@@ -16,21 +16,16 @@
 </template>
 
 <script>
+import { store } from "./store";
 import { ref, onMounted } from "vue";
 
 export default {
-  emits: ["addTodo"],
-
   setup(props, ctx) {
     const newTodo = ref(null);
 
     const addTodo = () => {
       const title = newTodo.value.value;
-      title &&
-        ctx.emit("addTodo", {
-          title,
-          done: false,
-        });
+      title && store.addTodo(title);
     };
     return {
       addTodo,
