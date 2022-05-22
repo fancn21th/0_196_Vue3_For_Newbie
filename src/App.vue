@@ -5,7 +5,7 @@
     >
       <div class="xl:max-w-lg xl:ml-auto">
         <hero />
-        <add-todo />
+        <add-todo @addTodo="addTodo" />
         <ul class="mt-4">
           <todo-list
             v-for="todo in store.state.todos"
@@ -38,7 +38,9 @@ export default {
     TodoList,
   },
   setup() {
-    return { store };
+    const addTodo = () => {};
+
+    return { store, addTodo };
   },
   methods: {},
 };
