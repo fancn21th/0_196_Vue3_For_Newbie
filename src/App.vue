@@ -28,19 +28,11 @@
           >
         </div>
         <ul class="mt-4">
-          <li
+          <todo
             v-for="todo in store.state.todos"
             :key="todo.id"
-            class="text-gray-700 text-xl after:content-['#'] mb-2"
-          >
-            <input
-              class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-              type="checkbox"
-              v-model="todo.done"
-              :id="todo.id"
-            />
-            <label class="ml-2" :for="todo.id">{{ todo.title }}</label>
-          </li>
+            :todo="todo"
+          ></todo>
         </ul>
       </div>
     </div>
@@ -56,8 +48,12 @@
 
 <script>
 import { store } from "./store";
+import Todo from "./Todo.vue";
 
 export default {
+  components: {
+    Todo,
+  },
   setup() {
     return { store };
   },
