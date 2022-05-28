@@ -6,7 +6,7 @@
       <div class="xl:max-w-lg xl:ml-auto">
         <hero />
         <add-todo />
-        <todo-list />
+        <router-view></router-view>
       </div>
     </div>
     <div class="hidden lg:block lg:w-1/2 lg:relative">
@@ -22,13 +22,11 @@
 <script>
 import Hero from "./Hero.vue";
 import AddTodo from "./AddTodo.vue";
-import TodoList from "./TodoList.vue";
 
 export default {
   components: {
     Hero,
     AddTodo,
-    TodoList,
   },
   setup() {
     return {};
